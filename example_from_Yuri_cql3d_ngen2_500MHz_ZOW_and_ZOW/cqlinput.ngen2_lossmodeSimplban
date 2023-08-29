@@ -1,0 +1,456 @@
+ &setup0
+ ibox='ITER',
+ iuser='YuP',
+ ioutput=6,
+ lrz=38
+ noplots='enabled'
+ mnemonic='ngen2_nmax6_hhfw500_ZOW_ZOW_iy102jx400_eni14MeV_ene1MeV_nt40_0712'
+ special_calls='disabled'
+ &end
+**
+ &setup
+! For Fusion sightline diagnostics:
+  fus_diag='disabled',
+  nv_fus = 6 ! sight lines
+  x_fus =  6*850.  ! detector position (cm)
+  z_fus= -150.,-100.,-20.,20., 100., 150. ! detector position (cm)
+  thet1_fus=6*90. ! 90deg is along equatorial plane
+  thet2_fus=140.,160.,180.,180.,200.,220.
+  fds_fus=0.5, ! step, as a fraction of radial bin width
+ ! done - for Fusion sightline diagnostics
+ acoefne=-1.80,-7.83,+051.57,-353.68
+ acoefte=8.01,-13.60,+08.69,-114.59
+
+ bnumb(1)=2.,  ! alpha fast ions,general
+ bnumb(2)=-1., ! electron, general
+ bnumb(3)=2.,  !alpha ions, thermalized
+ bnumb(4)=1.,  ! D, maxwell
+ bnumb(5)=1.   ! T, maxwell
+ bnumb(6)=4.   ! Be-9, maxwell
+ bnumb(7)=18.  ! Ar-40, maxwell
+ bnumb(8)=-1., ! electron, maxwell
+
+ bootst='enabled',
+ nonboot=2,
+ !bth=1.00e+3,
+ !btor=1.032e+4,
+ chang='noneg',
+ colmodl(1)=1, !1, !3,  !-----------------
+ colmodl(2)=3
+ contrmin=1.e-12,
+ dtr=100.e-3
+ soln_method(1)=  'direct'  ! for full-fow will be reset to 'it3drv'
+ soln_method(2)=  'direct'
+ lfil=20   ! default is 30 (used by ilut)
+ eegy(1,1,1,1)=0.,
+ eegy(1,2,1,1)=2.,
+ eegy(2,1,1,1)=0.,
+ eegy(2,2,1,1)=6.,
+ elecfld(0)=+1.e-4,
+ elecfld(1)=+1.e-4,
+ enloss(1)=200.,
+ enmax=100.,
+ enmin=05.,
+ enorme=1000.  !-----------
+ enormi=14000. !-----------
+ eoved=.00,
+ ephicc=1.,
+ fds=.2,
+
+ fmass(1)=6.6442e-24,  ! alpha fast ions,general
+ fmass(2)=9.1095e-28,  ! electron, general
+ fmass(3)=6.6442e-24,   !alpha ions, thermalized
+ fmass(4)=3.3436e-24,   !  D, maxwell
+ fmass(5)=5.0074e-24    !  T, maxwell
+ fmass(6)=1.4965e-23    !=16428*me  ! Be-9
+ fmass(7)=6.6360e-23    !=72847*me  ! Ar-40
+ fmass(8)=9.1095e-28,   ! electron, maxwell
+
+ gamaset=16.,  !Need to check out gamaset=0. coding
+ gsla=270.,gslb=35.,
+ iactst='disabled',
+ idskf='disabled',
+ idskrf='disabled',
+ implct='enabled',
+ ineg='enabled', !'disabled', !  'trunc_d', !
+ iproelec='spline', !-----------------------
+ iprone=  'spline', !-----------------------
+ iprote=  'spline', !-----------------------
+ iproti=  'spline', !-----------------------
+ !iprozeff='spline', ! would not work for three ion species
+ iprozeff='disabled', !--------------------
+ irzplt(1)=1,
+ irzplt(2)=2,
+ irzplt(3)=3,
+ irzplt(4)=4, 
+ irzplt(6)=6, 
+ irzplt(8)=8, 
+ irzplt(10)=10,
+ irzplt(12)=12,
+ irzplt(14)=14,
+ irzplt(16)=16,
+ irzplt(20)=20,
+ irzplt(24)=24,
+ irzplt(28)=28,
+ irzplt(32)=32,
+ irzplt(36)=36,
+ irzplt(37)=37,
+ irzplt(38)=38,
+ irzplt(40)=40
+
+ iy=102, !240, !---------------------
+ izeff='ion',
+ jhirsh=99,
+ jx=400, !-------------------------
+! kfrsou=4   !YuP: no effect on results for fusion source simulations, after 06-2016
+ kfrsou=1 !2   !NOTE: need to change coding for fusion_src; use its own k-variable
+ kpress(2)='enabled',
+
+ kspeci(1,1)='He',kspeci(2,1)='general',
+ kspeci(1,2)='e', kspeci(2,2)='general',
+ kspeci(1,3)='He',kspeci(2,3)='maxwell',
+ kspeci(1,4)='D', kspeci(2,4)='maxwell',
+ kspeci(1,5)='T', kspeci(2,5)='maxwell',
+ kspeci(1,6)='Be',kspeci(2,6)='maxwell',
+ kspeci(1,7)='Ar',kspeci(2,7)='maxwell',
+ kspeci(1,8)='e', kspeci(2,8)='maxwell',
+
+ lbdry(1)='conserv',  ! works now for full-FOW
+! lbdry(1)='scale',  
+ lbdry0='enabled', ! (default)
+ locquas='disabled',
+ lossmode(1)='simplban'
+ lossmode(2)='simplban',
+ lz=80,
+ machine='toroidal',
+ manymat='disabled'
+ meshy='fixed_y',
+ mpwr=0.1, 1.00, 1.00, 1.00
+ mx=3,
+ nchec=1,
+ ncoef=1,
+ ncont=20,
+ nen=30,
+ netcdfnm='enabled',
+ netcdfvecal='enabled',
+ netcdfvecrf='enabled',
+ netcdfvecc='enabled',
+ netcdfvecs='all'
+ ngen=2
+ nmax=6, !4,
+ noffel=10000,
+ nonel=10000,
+ nplot= 1,10,40,80,120,
+ nplt3d=1,10,40,80,120,
+ npwr=2.,2.,2.,2.,
+ nrskip=0,
+ nrstrt=1,
+ nstop=40, !120,!----------------
+ numby=30,
+ nv=7,
+ partner='bramb',
+ plt3d='enabled',
+ pltd='enabled',
+ pltdn='disabled',
+ pltend='enabled',
+ pltfvs='enabled',
+ pltinput='enabled',
+ pltmag=1.,
+ pltpowe='last',
+ pltprpp='enabled',
+ pltrst='disabled',
+ pltsig='enabled'
+ pltstrm='disabled',
+ pltvecal='disabled',
+ pltvecc='disabled',
+ pltvece='disabled',
+ pltvecrf='disabled',
+ pltvflu='disabled',
+ pltvs='rho',
+ plturfb='disabled',
+ profpsi='disabled',
+ psimodel='axitorus',
+ qsineut='disabled',
+ radmaj=700.,
+ radmin=250.,
+ radcoord='sqtorflx' ! default
+ rd=300.,
+! reden(1,0)=3.0e13
+! reden(1,1)=0.3e13
+! reden(2,0)=3.0e13
+! reden(2,1)=0.3e13
+! reden(3,0)=3.0e13
+! reden(3,1)=0.3e13
+ relativ(1)='enabled',  !------------ alphas
+ relativ(2)='enabled'   !------------ e
+ rfacz=1.,
+ rmirror=7.5,
+ rovera=1.e-2,
+ roveram=0.00,
+ rzset='enabled' !'disabled',
+ softxry='disabled',
+ syncrad='disabled',
+ tandem='enabled',
+ tauloss(1,1)=0.0, !.3,
+ tauloss(2,1)=0.,
+ tauloss(3,1)=0.,
+ taunew='enabled',
+ tbnd=.002,
+! temp(1,0)=4.0
+! temp(1,1)=0.1
+! temp(2,0)=4.0
+! temp(2,1)=0.1
+! temp(3,0)=4.0
+! temp(3,1)=0.1
+ tfac=-1., !0.75,
+ tfacz=1.,
+ thet1=0.,0.1253,0.2527,0.3844,0.,0.,0.,
+ thet2=0.,0.,0.,0.,0.9099,1.1012,-0.9099,
+ thetd=0.0
+ torloss(1)='disabled',
+ veclnth=1.5,
+ xfac=1.0 !0.1, !+.5,
+ xlwr=.085,
+ xmdl=.25,
+ xpctlwr=.1,
+ xpctmdl=.4,
+ ylower=1.22,
+ yreset='disabled',
+ yupper=1.275,
+ zmax=408.
+ njene= 40
+ ryain=        0.000000000  2.5641e-002  5.1282e-002  7.6923e-002  1.0256e-001  1.2821e-001
+  1.5385e-001  1.7949e-001  2.0513e-001  2.3077e-001  2.5641e-001  2.8205e-001
+  3.0769e-001  3.3333e-001  3.5897e-001  3.8462e-001  4.1026e-001  4.3590e-001
+  4.6154e-001  4.8718e-001  5.1282e-001  5.3846e-001  5.6410e-001  5.8974e-001
+  6.1538e-001  6.4103e-001  6.6667e-001  6.9231e-001  7.1795e-001  7.4359e-001
+  7.6923e-001  7.9487e-001  8.2051e-001  8.4615e-001  8.7179e-001  8.9744e-001
+  9.2308e-001  9.4872e-001  9.7436e-001  1.0000e+000
+
+ enein(1,1) = 40*1.e10  ! alphas, general
+ enein(1,3) = 40*1.e10  ! alphas, Maxw.
+ 
+! e, general (set to be same as e_Maxwellian) :
+ enein(1,2)=   6.0000e+013  6.0000e+013  6.0000e+013  5.9997e+013  5.9983e+013  5.9942e+013
+  5.9850e+013  5.9703e+013  5.9540e+013  5.9419e+013  5.9372e+013  5.9377e+013
+  5.9415e+013  5.9486e+013  5.9575e+013  5.9647e+013  5.9670e+013  5.9642e+013
+  5.9588e+013  5.9551e+013  5.9549e+013  5.9560e+013  5.9549e+013  5.9503e+013
+  5.9419e+013  5.9291e+013  5.9101e+013  5.8839e+013  5.8493e+013  5.8044e+013
+  5.7458e+013  5.6696e+013  5.5711e+013  5.4441e+013  5.2801e+013  5.0658e+013
+  4.7805e+013  4.3857e+013  3.5780e+013  2.0999e+013
+
+! e, Maxw. (8 is the last species in the list):
+ enein(1,8)=   6.0000e+013  6.0000e+013  6.0000e+013  5.9997e+013  5.9983e+013  5.9942e+013
+  5.9850e+013  5.9703e+013  5.9540e+013  5.9419e+013  5.9372e+013  5.9377e+013
+  5.9415e+013  5.9486e+013  5.9575e+013  5.9647e+013  5.9670e+013  5.9642e+013
+  5.9588e+013  5.9551e+013  5.9549e+013  5.9560e+013  5.9549e+013  5.9503e+013
+  5.9419e+013  5.9291e+013  5.9101e+013  5.8839e+013  5.8493e+013  5.8044e+013
+  5.7458e+013  5.6696e+013  5.5711e+013  5.4441e+013  5.2801e+013  5.0658e+013
+  4.7805e+013  4.3857e+013  3.5780e+013  2.0999e+013
+  
+! D, Maxw. :
+ enein(1,4)=   2.3841e+013  2.3848e+013  2.3867e+013  2.3897e+013  2.3929e+013  2.3948e+013
+  2.3931e+013  2.3874e+013  2.3811e+013  2.3799e+013  2.3863e+013  2.3983e+013
+  2.4140e+013  2.4331e+013  2.4544e+013  2.4743e+013  2.4898e+013  2.5006e+013
+  2.5091e+013  2.5191e+013  2.5326e+013  2.5473e+013  2.5603e+013  2.5704e+013
+  2.5779e+013  2.5825e+013  2.5832e+013  2.5796e+013  2.5717e+013  2.5589e+013
+  2.5395e+013  2.5115e+013  2.4728e+013  2.4210e+013  2.3525e+013  2.2616e+013
+  2.1392e+013  1.9681e+013  1.6113e+013  9.5135e+012
+  
+! T, Maxw. :
+ enein(1,5)=   2.3842e+013  2.3848e+013  2.3868e+013  2.3900e+013  2.3946e+013  2.4006e+013
+  2.4081e+013  2.4170e+013  2.4272e+013  2.4380e+013  2.4491e+013  2.4605e+013
+  2.4723e+013  2.4842e+013  2.4963e+013  2.5086e+013  2.5212e+013  2.5339e+013
+  2.5462e+013  2.5579e+013  2.5683e+013  2.5775e+013  2.5853e+013  2.5915e+013
+  2.5957e+013  2.5974e+013  2.5962e+013  2.5913e+013  2.5822e+013  2.5678e+013
+  2.5468e+013  2.5176e+013  2.4781e+013  2.4255e+013  2.3560e+013  2.2640e+013
+  2.1406e+013  1.9688e+013  1.6115e+013  9.5147e+012
+
+! Be-9, Maxw. :
+ enein(1,6)=   8.5139e+011  8.5163e+011  8.5232e+011  8.5338e+011  8.5455e+011
+  8.5521e+011  8.5459e+011  8.5256e+011  8.5033e+011  8.4989e+011
+  8.5218e+011  8.5647e+011  8.6206e+011  8.6889e+011  8.7649e+011
+  8.8359e+011  8.8913e+011  8.9297e+011  8.9601e+011  8.9961e+011
+  9.0440e+011  9.0966e+011  9.1430e+011  9.1793e+011  9.2061e+011
+  9.2224e+011  9.2248e+011  9.2119e+011  9.1837e+011  9.1380e+011
+  9.0687e+011  8.9687e+011  8.8307e+011  8.6458e+011  8.4011e+011
+  8.0765e+011  7.6391e+011  7.0284e+011  5.7540e+011  3.3974e+011
+ 
+! Ar-40, Maxw. :
+ enein(1,7)=   8.5140e+010  8.5164e+010  8.5234e+010  8.5350e+010  8.5514e+010
+  8.5728e+010  8.5995e+010  8.6315e+010  8.6677e+010  8.7062e+010
+  8.7459e+010  8.7868e+010  8.8288e+010  8.8715e+010  8.9146e+010
+  8.9586e+010  9.0034e+010  9.0487e+010  9.0929e+010  9.1344e+010
+  9.1718e+010  9.2045e+010  9.2324e+010  9.2546e+010  9.2696e+010
+  9.2757e+010  9.2713e+010  9.2540e+010  9.2213e+010  9.1698e+010
+  9.0948e+010  8.9906e+010  8.8496e+010  8.6617e+010  8.4135e+010
+  8.0850e+010  7.6442e+010  7.0310e+010  5.7548e+010  3.3978e+010
+
+! NOTE: Species#8 (e_Maxwellian is set few lines above)
+   
+ tein=         3.6608e+001  3.6592e+001  3.6520e+001  3.6343e+001  3.6029e+001  3.5589e+001
+  3.5022e+001  3.4326e+001  3.3499e+001  3.2545e+001  3.1475e+001  3.0306e+001
+  2.9047e+001  2.7701e+001  2.6263e+001  2.4739e+001  2.3152e+001  2.1538e+001
+  1.9932e+001  1.8365e+001  1.6862e+001  1.5451e+001  1.4112e+001  1.2774e+001
+  1.1530e+001  1.0389e+001  9.3422e+000  8.4098e+000  7.5463e+000  6.7408e+000
+  6.0006e+000  5.3245e+000  4.7142e+000  4.1748e+000  3.7058e+000  3.3025e+000
+  2.9584e+000  2.5998e+000  1.4746e+000  1.0000e-001
+           
+ tiin=         3.5910e+001  3.5907e+001  3.5895e+001  3.5850e+001  3.5692e+001  3.5320e+001
+  3.4689e+001  3.3827e+001  3.2793e+001  3.1625e+001  3.0343e+001  2.8967e+001
+  2.7517e+001  2.6013e+001  2.4472e+001  2.2914e+001  2.1355e+001  1.9809e+001
+  1.8290e+001  1.6808e+001  1.5378e+001  1.4011e+001  1.2715e+001  1.1493e+001
+  1.0352e+001  9.2939e+000  8.3207e+000  7.4363e+000  6.6296e+000  5.8979e+000
+  5.2406e+000  4.6552e+000  4.1367e+000  3.6805e+000  3.2818e+000  2.9356e+000
+  2.6367e+000  2.3205e+000  1.3195e+000  1.0000e-001
+
+ zeffin(1)= 40*2.0 ! not used in present setup
+ elecin(1)= 40*1.e-5
+ 
+ rya(1)= 0.025 0.050 0.075 0.100 0.125 0.150 0.175 0.200 0.225 0.250 0.275 0.300 0.325 0.350 0.375 0.400
+ 0.425 0.450 0.475 0.500 0.525 0.550 0.575 0.600 0.625 0.650 0.675 0.700 0.725 0.750 0.775 0.800
+ 0.825 0.850 0.875 0.900 0.925 0.950
+
+ sigmamod='enabled'
+ isigmas(1)=1,0,0,0 ![07/29/2016] now can calc. all 3 reactions with D+T Maxwellian
+ mmsv=3
+ fusion_src='enabled'
+ iy_fus_src=240 !720 ! 3*240
+!---------------------------------------------------------------------
+ fow(1)='disabled', ! 'full', ! 'hybrid', !  'full',  !
+ fow(2)='disabled'
+! mimic_zow='enabled',
+ fow_loss='orb+gyro',  !'orb+gyro', !'orbit'
+ fow_write='enabled'
+ fow_read='enabled'
+ outorb='Not-detailed' ! 'detailed' to save data for Matlab
+! fow_ibc='enabled', 
+! fow_balance=1.d0       
+ nmu=200, !100 ! is enough
+ npfi=200 ! 100 is enough
+ nptsorb=30
+ nsteps_orb=100000 ! Max.number of time steps for orbit integration
+ &end
+**
+ &trsetup
+ transp(1)='disabled', !---------------------------enable for fow(1)=full
+ transp(2)='disabled' ! for ZOW electrons
+ &end
+**
+ &sousetup
+ asor(1,1,1)=0.0e+13,asor(1,2,1)=0.0e+13
+! noffso(1,1)=10000,noffso(4,2)=10000
+ noffso(1,1)=10000,noffso(2,2)=10000
+! nonso(4,1)=0,nonso(4,2)=0
+! nonso(2,1)=0,nonso(2,2)=0
+! nonso(1,1)=0,nonso(1,2)=0
+ nso=1,
+ nsou=10000,
+ pltso='enabled',
+ scm2(1,1)=.001,scm2(1,2)=10000.,
+ sellm1(1,1)=1.,sellm1(1,2)=1.,
+ sellm2(1,1)=1.,sellm2(1,2)=1.,
+ sem1(1,1)=1600.,sem1(1,2)=0.,
+ sem2(1,1)=.5,sem2(1,2)=25.,
+ seppm1(1,1)=1.,seppm1(1,2)=1.,
+ seppm2(1,1)=1.,seppm2(1,2)=1.,
+ soucoord='disabled', !'polar',
+ sthm1(1,1)=5.,sthm1(1,2)=0.,
+ szm1(1,1)=0.,szm1(1,2)=0.,
+ szm2(1,1)=1.e+5,
+ szm2(1,2)=1.e+5
+ knockon='disabled'
+ komodel='th'
+ flemodel='th_pol',
+ jfl=150
+ nkorfn=0,
+ nonko=0
+ noffko=10000
+ soffvte=4.5
+ isoucof=1
+ faccof=0.5
+ xlfac=+0.1,
+ xllwr=.085,
+ xlmdl=.25,
+ xlpctlwr=.1,
+ xlpctmdl=.4
+ &end
+**
+ &eqsetup
+ atol=1.e-8,
+! bsign=-1.,
+ bsign=+1.,
+ ellptcty=0.,
+ eqdskin='G_STEADY_EC1F_ITER_LR_01000.TXT'
+ eqmod='enabled',
+ eqpower=2,
+ eqsource='eqdsk',
+ eqsym='avg_zmag',
+ fpsimodl='constant',
+ methflag=10,
+ nconteq='psigrid',
+ rbox=92.,
+ rboxdst=120.,
+ rmag=166.,
+ rtol=1.e-8,
+ zbox=92.
+ &end
+**
+ &rfsetup
+ rdcmod='disabled'
+ call_lh='disabled',
+ call_ech='disabled',
+ call_fw='disabled',
+ lh='disabled',
+ ech='disabled',
+ fw='disabled',
+! iurfl(1)='enabled', !'disabled'   !so no double application of linear damping
+! iurfl(1)='disabled','enabled'   !so no double application of linear damping
+ iurfl(1)='disabled','disabled',
+ iurfcoll(1)='damp_out','damp_out'
+ nharms=11,1 ! alphas,e !Choose appropriately to cover the plasma cross-section
+ nharm1= 9,0 ! alphas,e ! range:  nharm1(i) to nharm1(i)+(nharms(i)-1)
+ nrfitr1=1000,
+ nrfitr2=0,
+ nrfitr3=1,
+ nrfpwr=0,
+ nrfstep1(1)=1000,
+ nrfstep1(2)=1000,
+ nrfstep2=000,
+ nondamp=0
+ noffrf(1)=100000,  100000
+ nonrf(1)=0, 0
+ nrf=0
+
+ nrfspecies(1)=1,2     !-------------- alphas,e
+
+ pwrscale(1)= 1.0 1.0 !one wave type: FW, so - one value needed?
+ rfread='netcdf'
+ rffile(1)='iter_ec1f_helicon.nc' 
+           'iter_ec1f_helicon.nc'
+             
+ rftype(1)='fw' 'fw'   !------------ for alphas and e
+ nbssltbl=200000
+ nurftime=0
+!!! pwrscale1(1)=0.0,0.0,0.15433,0.37111,.64866,1.0,1.0
+!!! urftime(1)=0.0,0.2,0.205,0.210,0.215,0.220,0.225
+ scaleurf='enabled',
+ urfdmp='firstd',
+ urfmod='enabled',  !------------------------------------
+ urfrstrt='disabled',
+ urfwrray='disabled',
+ vlfmod='disabled',
+ vlhmod='disabled',
+ vparmax=.7956,
+ vparmin=.1768,
+ vprprop='disabled'
+ &end
+**
+ &frsetup
+ &end
+end
+end
+LEAVE
+THESE
+HERE!
+
