@@ -30,11 +30,11 @@ print('WARNING: plotting from a manually entered directory.')
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d.nc','r')
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d_krf001.nc','r')
 
-save_number_for_scan = '10'
-folder = 'scan_bmpwr_gen_D_gen_e_longer_rays'
-cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_bmpwr_{save_number_for_scan}.nc','r')
-cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_bmpwr_{save_number_for_scan}.nc','r')
-save_folder_and_name = f'{folder}/rays_bmpwr{save_number_for_scan}.png'
+save_number_for_scan = '1'
+folder = 'scan_beam_and_RF/beam_10_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
+cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
+cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_rfpwr_{save_number_for_scan}.nc','r')
+save_folder_and_name = f'{folder}/rays_rfpwr{save_number_for_scan}.png'
 
 plt.rc('xtick', labelsize = 14)
 plt.rc('ytick', labelsize = 14)
