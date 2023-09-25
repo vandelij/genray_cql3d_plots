@@ -108,7 +108,7 @@ def plotRays(frequency, harmonics, species, r_resolution, z_resolution, levels):
     delpwr= cqlrf_nc.variables["delpwr"][:] #power in the ray at each point
     wr *= .01; wz*=.01 #convert to m from cm
     
-    maxDelPwrPlot = 0.8#.8 #what portion of ray power must have been damped before we stop plotting that ray
+    maxDelPwrPlot = 0.90#.8 #what portion of ray power must have been damped before we stop plotting that ray
 
     norm = plt.Normalize(0, 1)
 

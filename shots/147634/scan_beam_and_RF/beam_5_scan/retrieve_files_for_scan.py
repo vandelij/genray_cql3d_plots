@@ -6,7 +6,7 @@ os.chdir(dname)
 
 host = 'eofe7.mit.edu'
 username = 'vandelij'
-rwdir = open("../../../../remoteDirectory2.txt", "r").readlines()[0].strip()
+rwdir = open("../../../../remoteDirectory.txt", "r").readlines()[0].strip()
 shotNum = rwdir.split('/')[-1].split('_')[1]
 
 # Detailed scan 
