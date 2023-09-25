@@ -27,14 +27,15 @@ remoteDirectory = open(f"../remoteDirectory.txt", "r").readlines()[0].strip()
 shotNum = remoteDirectory.split('/')[-1].split('_')[1]
 
 print('WARNING: plotting from a manually entered directory.')
+print('Shot: ', shotNum)
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d.nc','r')
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d_krf001.nc','r')
 
-save_number_for_scan = '10'
-folder = 'scan_beam_and_RF/scan_npar_beam_5_RF_0_5'  #scan_bmpwr_gen_D_gen_e_longer_rays'
-cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_npar_{save_number_for_scan}.nc','r')
-cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_npar_{save_number_for_scan}.nc','r')
-save_folder_and_name = f'{folder}/rays_npar{save_number_for_scan}.png'
+save_number_for_scan = '0_7'
+folder = 'scan_beam_and_RF/beam_2_5_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
+cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
+cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_rfpwr_{save_number_for_scan}.nc','r')
+save_folder_and_name = f'{folder}/rays_rfpwr{save_number_for_scan}.png'
 # save_number_for_scan = '0_7'
 # folder = 'scan_beam_and_RF/beam_5_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
@@ -228,7 +229,7 @@ species_charge['D'] = 1.6022e-19 # [C]
 #print(cql_nc.variables.keys())
 frequency = 96000000.0 # [Hz]
 species = 'D'
-harmonics = [4, 5, 6, 7, 8]
+harmonics = [5, 6, 7, 8, 9, 10]
 r_resolution = 100
 z_resolution = 200
 
