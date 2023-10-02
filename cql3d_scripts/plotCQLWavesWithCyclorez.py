@@ -32,7 +32,7 @@ print('Shot: ', shotNum)
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d_krf001.nc','r')
 
 save_number_for_scan = '0_7'
-folder = 'scan_beam_and_RF/beam_2_5_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
+folder = 'scan_beam_and_RF/beam_5_RF_0_7_testing'  #scan_bmpwr_gen_D_gen_e_longer_rays'
 cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
 cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_rfpwr_{save_number_for_scan}.nc','r')
 save_folder_and_name = f'{folder}/rays_rfpwr{save_number_for_scan}.png'
@@ -108,7 +108,7 @@ def plotRays(frequency, harmonics, species, r_resolution, z_resolution, levels):
     delpwr= cqlrf_nc.variables["delpwr"][:] #power in the ray at each point
     wr *= .01; wz*=.01 #convert to m from cm
     
-    maxDelPwrPlot = 0.90#.8 #what portion of ray power must have been damped before we stop plotting that ray
+    maxDelPwrPlot = 0.99#.8 #what portion of ray power must have been damped before we stop plotting that ray
 
     norm = plt.Normalize(0, 1)
 
