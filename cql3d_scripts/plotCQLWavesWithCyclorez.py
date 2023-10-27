@@ -31,8 +31,8 @@ print('Shot: ', shotNum)
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d.nc','r')
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d_krf001.nc','r')
 
-save_number_for_scan = '0_5'
-folder = 'scan_beam_and_RF/beam_7_5_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
+save_number_for_scan = '0_7'
+folder = 'scan_beam_and_RF/beam_5_RF_testing'  #scan_bmpwr_gen_D_gen_e_longer_rays'
 cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
 cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_rfpwr_{save_number_for_scan}.nc','r')
 save_folder_and_name = f'{folder}/rays_rfpwr{save_number_for_scan}.png'
@@ -100,6 +100,13 @@ def findNearestIndex(value, array):
 def plotRays(frequency, harmonics, species, r_resolution, z_resolution, levels):
     xlim = gfileDict["xlim"] #R points of the wall
     ylim = gfileDict["ylim"] #Z points of the wall
+    print(xlim)
+    print(ylim)
+    print('top - bot:', max(ylim) - min(ylim))
+    new_array = np.zeros((xlim.shape[0], 3))
+    new_array[:, 0] = xlim
+    new_array[:, 1] = ylim
+    np.savetxt('RZ_WALL.txt', new_array)
     rbbbs = gfileDict["rbbbs"] #R points of the LCFS
     zbbbs = gfileDict["zbbbs"] # Z points of the LCFS
     
