@@ -1,0 +1,18 @@
+Rho(norml. sqrt. toroid. flux)
+q
+Beam Ion Density(10^13 cm^-3)
+Ion Density(10^13 cm^-3)
+Elec Density(10^13 cm^-3)
+Impurity Density(10^13 cm^-3)
+Beam Ion Effective Temp(keV)
+Ion Temp(keV)
+Electron Temp(keV)
+Beam Pressure(kPa)
+Thermal Pressure(kPa)
+Equil.Pressure(kPa)
+Zeff
+Tor Rot(kHz)
+Tor Rot(10^5 m/s)
+RF Ion Density(10^13 cm^-3)
+RF Ion Effective Temp(keV)
+RF Pressure(kPa)
