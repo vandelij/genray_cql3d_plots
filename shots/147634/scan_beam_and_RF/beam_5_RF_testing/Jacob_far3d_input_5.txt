@@ -1,3 +1,21 @@
+:PLASMA GEOMETRY 
+Vacuum Toroidal magnetic field at R=1.69550002m [Tesla]
+    1.6621763429999998
+Geometric Center Major radius [m]
+    1.69550002
+Minor radius [m]
+    0.7936953550739217
+Avg. Elongation
+    NA
+Avg. Top/Bottom Triangularity
+    NA
+Main Contaminant Species
+    NA
+Main Ion Species mass/proton mass
+    2.00000
+TRYING TO GET TO BETA(0)=NA , Rmax=NA
+
+
 # Rho(norml. sqrt. toroid. flux), q, Beam Ion Density(10^13 cm^-3), Ion Density(10^13 cm^-3), Elec Density(10^13 cm^-3), Impurity Density(10^13 cm^-3), Beam Ion Effective Temp(keV), Ion Temp(keV), Electron Temp(keV), Beam Pressure(kPa), Thermal Pressure(kPa), Equil.Pressure(kPa), Zeff, Tor Rot(kHz), Tor Rot(10^5 m/s), RF Ion Density(10^13 cm^-3), RF Ion Effective Temp(keV), RF Pressure(kPa)
 0.00000 1.49597 0.84074 5.15624 6.00000 0.00000 23.69500 5.82961 5.92375 31.91808 48.16033 80.80413 1.00000 0.00000 0.00000 0.00302 150.00000 0.72572
 0.00331 1.49642 0.84035 5.15505 5.99973 0.00000 23.69360 5.82791 5.92340 31.90131 48.13510 81.07659 1.00000 0.00000 0.00000 0.00433 150.00000 1.04018
