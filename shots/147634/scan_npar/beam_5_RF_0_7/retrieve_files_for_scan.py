@@ -15,6 +15,6 @@ npars = [1,2,3,4,5,6,7,8,9,10,11]
 
 for npar in npars:
     print(f'npar = {npar}..')
-    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d.nc cql3d_npar{npar}.nc')
-    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d_krf001.nc cql3d_krf_npar{npar}.nc')
-    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d.ps cql3d_rfpwr_npar{npar}.ps')
+    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d.nc cql3d_npar_{npar}.nc')
+    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d_krf001.nc cql3d_krf_npar_{npar}.nc')
+    os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d.ps cql3d_rfpwr_npar_{npar}.ps')
