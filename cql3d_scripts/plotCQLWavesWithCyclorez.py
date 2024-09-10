@@ -31,11 +31,14 @@ print('Shot: ', shotNum)
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d.nc','r')
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/cql3d_krf001.nc','r')
 
-save_number_for_scan = '0_7'
-folder = 'scan_beam_and_RF/beam_5_RF_testing'  #scan_bmpwr_gen_D_gen_e_longer_rays'
-cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
-cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_rfpwr_{save_number_for_scan}.nc','r')
-save_folder_and_name = f'{folder}/rays_rfpwr{save_number_for_scan}.png'
+# cql3d_npar{npar}.nc')
+#     os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d_krf001.nc cql3d_krf_npar{npar}.nc')
+
+save_number_for_scan = '5'
+folder = 'scan_npar/beam_5_RF_0_7'  #scan_bmpwr_gen_D_gen_e_longer_rays'
+cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_npar_{save_number_for_scan}.nc','r')
+cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_npar_{save_number_for_scan}.nc','r')
+save_folder_and_name = f'{folder}/rays_npar_{save_number_for_scan}.png'
 # save_number_for_scan = '0_7'
 # folder = 'scan_beam_and_RF/beam_5_scan'  #scan_bmpwr_gen_D_gen_e_longer_rays'
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_rfpwr_{save_number_for_scan}.nc','r')
