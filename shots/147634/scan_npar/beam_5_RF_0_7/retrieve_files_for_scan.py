@@ -9,9 +9,11 @@ username = 'vandelij'
 rwdir = open("../../../../remoteDirectory.txt", "r").readlines()[0].strip()
 shotNum = rwdir.split('/')[-1].split('_')[1]
 
+print(f'Looking in shotNum {shotNum}')
+
 # Detailed scan 
 
-npars = [1,2,3,4,5,6,7,8,9,10,11]
+npars = [5] # [1,2,3,4,5,6,7,8,9,10,11]
 
 for npar in npars:
     print(f'npar = {npar}..')
