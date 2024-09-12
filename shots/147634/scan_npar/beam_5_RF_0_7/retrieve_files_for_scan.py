@@ -13,7 +13,7 @@ print(f'Looking in shotNum {shotNum}')
 
 # Detailed scan 
 
-npars = [5] # [1,2,3,4,5,6,7,8,9,10,11]
+npars = [6,7,8,9,10,11] # [1,2,3,4,5,6,7,8,9,10,11]
 
 for npar in npars:
     print(f'npar = {npar}..')
