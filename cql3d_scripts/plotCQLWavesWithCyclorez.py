@@ -34,24 +34,24 @@ print('Shot: ', shotNum)
 # cql3d_npar{npar}.nc')
 #     os.system(f'scp {username}@{host}:{rwdir}/scan_matrix_npar_beam_5_rf_0_7/npar_{npar}/cql3d_krf001.nc cql3d_krf_npar{npar}.nc')
 
-save_number_for_scan = '11'
-folder = 'scan_npar/beam_5_RF_0_7'  #scan_bmpwr_gen_D_gen_e_longer_rays'
-cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_npar_{save_number_for_scan}.nc','r')
-cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_npar_{save_number_for_scan}.nc','r')
-save_folder_and_name = f'{folder}/rays_npar_{save_number_for_scan}.png'
+save_number_for_scan = '2_5'
+folder = 'scan_beam_npar_5_RF_0_7'#'scan_npar/beam_5_RF_0_7'  
+cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_beampwr_{save_number_for_scan}.nc','r') # netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_npar_{save_number_for_scan}.nc','r')
+cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_beampwr_{save_number_for_scan}.nc','r') # netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_npar_{save_number_for_scan}.nc','r')
+save_folder_and_name = f'{folder}/rays_beampwr_{save_number_for_scan}.png' # f'{folder}/rays_npar_{save_number_for_scan}.png'
 
-# save_number_for_scan = '5'
+# save_number_for_scan = '10'
 # folder = 'scan_beam_npar_5_RF_0_7/'  #scan_bmpwr_gen_D_gen_e_longer_rays'
 # cql_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_beampwr_{save_number_for_scan}.nc','r')
 # cqlrf_nc = netCDF4.Dataset(f'../shots/{shotNum}/{folder}/cql3d_krf_beampwr_{save_number_for_scan}.nc','r')
 # save_folder_and_name = f'{folder}/rays_beampwr_{save_number_for_scan}.png'
 
-plt.rc('xtick', labelsize = 14)
-plt.rc('ytick', labelsize = 14)
-plt.rc('axes', labelsize = 16)
-plt.rc('axes', titlesize = 14)
-plt.rc('figure', titlesize = 18)
-plt.rc('legend', fontsize = 14)
+plt.rc('xtick', labelsize = 20)
+plt.rc('ytick', labelsize = 20)
+plt.rc('axes', labelsize = 20)
+plt.rc('axes', titlesize = 20)
+plt.rc('figure', titlesize = 20)
+plt.rc('legend', fontsize = 20)
 
 
 
@@ -123,10 +123,10 @@ def plotRays(frequency, harmonics, species, r_resolution, z_resolution, levels):
 
     norm = plt.Normalize(0, 1)
 
-    fig, ax = plt.subplots(figsize = (4.25,7.1))
+    fig, ax = plt.subplots(figsize = (5,7.1)) # TODO make bigger? (4.25,7.1)
     plt.subplots_adjust(left=0.22,bottom = .1)
-    ax.set_ylabel("z (m)")
-    ax.set_xlabel("R (m)")
+    #ax.set_ylabel("Z [m]")
+    ax.set_xlabel("R [m]")
 
     #plot the ray using a LineCollection which allows the colormap to be applied to each ray
     for ray in range(len(wr)):
@@ -149,7 +149,7 @@ def plotRays(frequency, harmonics, species, r_resolution, z_resolution, levels):
 
     ax.set_title(f"Plotting Rays until {(maxDelPwrPlot) * 100} %\n ray power deposition")
     ax.set_aspect('equal')
-    
+    ax.set_ylim(-1.4, 1.4)
     drawFluxSurfaces(ax, levels)
     plotCyclotronHarmonics(ax, frequency, harmonics, species, r_resolution, z_resolution)
     ax.legend()
@@ -177,9 +177,10 @@ def plotCyclotronHarmonics(ax, frequency, harmonics, species, r_resolution, z_re
     R, Z = np.meshgrid(r_points, z_points)
 
     CS = ax.contour(R, Z, normalized_w_wave.T, levels=harmonics, colors=('blue',), linestyles=('--',))
-    ax.clabel(CS, fmt = '%2.1d', colors = 'blue', fontsize=12)
+    labels = ax.clabel(CS, fmt = '%2.1d', colors = 'blue', fontsize=20)
 
-
+    for label in labels:
+        label.set_rotation(0)
     # depricated 
     # harmonic_holder = np.zeros((z_resolution, len(harmonics)))
 
